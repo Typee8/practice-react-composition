@@ -9,12 +9,21 @@ class App extends React.Component {
         usersList: [],
     }
 
+    updateUsersList = evt => {
+      evt.preventDefault();
+      const usersList = this.state.usersList.map(item => item);
+      const input = evt.currentTarget.querySelector('input');
+      usersList.push(input.value);
+
+      this.setState({ usersList: usersList });
+    }
+
     render() {
         const  { usersList } = this.state;
 
         return (
             <section>
-                <Form />
+                <Form onSubmit={this.updateUsersList}/>
                 <List items={ usersList } />
             </section>
         )

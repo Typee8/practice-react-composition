@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 class Form extends React.Component {
+  nameInput = createRef();
+
     render() {
+      const { onSubmit } = this.props;
+
         return (
-            <section>
-                <input /><input type="submit" />
-            </section>
+            <form onSubmit={onSubmit}>
+                <input defaultValue={'Write something'} ref={this.nameInput}/><input type="submit" />
+            </form>
         )
     }
 }

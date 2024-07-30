@@ -1,7 +1,14 @@
-import React from 'react';
+import React from "react";
 
 function Cart(props) {
-    return <h2>Cart</h2>
+  const { children } = props;
+
+  return (
+    <section className="cart">
+      <h2 className="cart__header">Cart: </h2>
+      {children}
+    </section>
+  );
 }
 
 export default Cart;
